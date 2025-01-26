@@ -2,7 +2,13 @@ import Image from "next/image";
 import styles from "./postCard.module.css";
 import Link from "next/link";
 
-export default function PostCard() {
+interface PostItem {
+  _id: string;
+  title: string;
+  description: string;
+}
+//https://nabendu82.medium.com/nextjs-14-blog-app-79a7c81fc0ed
+export default function PostCard({ _id, title, description }: PostItem) {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -18,14 +24,9 @@ export default function PostCard() {
         <span className={styles.date}>01.01.2025</span>
       </div>
       <div className={styles.bottom}>
-        <h1 className={styles.title}>Title</h1>
-        <p className={styles.desc}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled
-        </p>
-        <Link className={styles.link} href="/blog/post">
+        <h1 className={styles.title}>{title}</h1>
+        <p className={styles.desc}>{description}</p>
+        <Link className={styles.link} href={`blog/${_id}`}>
           Read More
         </Link>
       </div>

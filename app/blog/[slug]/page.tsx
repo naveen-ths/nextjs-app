@@ -1,6 +1,9 @@
-import styles from "./singlePost.module.css";
 import Image from "next/image";
-export default function SinglePostPage() {
+import styles from "./singlePost.module.css";
+
+
+export default async function SinglePostPage() {
+// const dada = await getPost(slug);
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
